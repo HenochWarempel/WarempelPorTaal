@@ -3,10 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Warempel-PorTaal</title>
+  <title>Warempel Portal</title>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
     *,*::before,*::after{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -20,8 +19,6 @@
       flex-direction:column;
       align-items:center;
     }
-
-    /* Header */
     .header{
       width:100%;
       background:#fff;
@@ -35,27 +32,21 @@
       align-items:center;
     }
     .header img{height:44px}
-
-    /* Container */
     .container{width:100%;max-width:920px;padding:28px 20px}
-
-    /* Title */
     h1{
       font-family:'Fredoka',sans-serif;
       color:#FF006C;
       margin:0 0 20px;
       font-size:28px;
+      text-align:center;
     }
-
-    /* Buttons grid */
-    .buttons-row{
+    .buttons-grid{
       display:grid;
       grid-template-columns:1fr;
       gap:12px;
-      margin-bottom:18px;
+      margin-bottom:24px;
     }
-    @media(min-width:640px){ .buttons-row{ grid-template-columns:repeat(3,1fr) } }
-
+    @media(min-width:640px){ .buttons-grid{ grid-template-columns:repeat(3,1fr) } }
     .button{
       display:flex;
       align-items:center;
@@ -69,18 +60,16 @@
       font-weight:600;
       box-shadow:0 6px 18px rgba(18,32,36,.03);
       transition:transform .06s ease,box-shadow .12s;
+      text-align:center;
+      min-height:70px;
     }
     .button .label{ font-family:'Fredoka',sans-serif; color:#FF006C }
     .button:hover{ transform:translateY(-4px); box-shadow:0 10px 30px rgba(18,32,36,.08) }
-
     .button.primary{ background:#FF006C; color:#fff; border-color:transparent }
     .button.primary .label{ color:inherit }
     .button.primary:hover{ background:#e00060 }
-
-    /* Search area */
     .search-row{ display:grid; gap:12px; margin-top:6px }
     @media(min-width:640px){ .search-row{ grid-template-columns:repeat(2,1fr) } }
-
     .search-card{
       background:#fff;
       padding:14px;
@@ -110,7 +99,6 @@
       font-weight:600;
       cursor:pointer;
     }
-
     .footer{ margin:36px 0 60px; color:#7a7a7a; font-size:13px; text-align:center }
   </style>
 </head>
@@ -120,15 +108,16 @@
   </header>
 
   <div class="container">
-    <h1>Warempel-PorTaal</h1>
+    <h1>Warempel Portal</h1>
 
-    <div class="buttons-row">
+    <div class="buttons-grid">
       <a class="button primary" href="https://wijzijnweb.sharepoint.com/sites/Klanten/Gedeelde%20documenten?viewid=dec2c5bf-272e-4909-927a-af63fc62339a" target="_blank"><span class="label">SharePoint</span></a>
       <a class="button" href="https://wijzijnweb.gripp.com/" target="_blank"><span class="label">Gripp</span></a>
       <a class="button" href="https://contentkalender.nl/" target="_blank"><span class="label">Contentkalender</span></a>
       <a class="button" href="https://www.canva.com/projects" target="_blank"><span class="label">Canva</span></a>
       <a class="button" href="https://chat.openai.com/" target="_blank"><span class="label">Chattie</span></a>
       <a class="button" href="https://henochwarempel.github.io/customGPTs/" target="_blank"><span class="label">CustomGPTs</span></a>
+      <a class="button" href="https://wijzijnweb.sharepoint.com/:x:/s/Klanten/EdYSMb57FyZGpWwgTX0Bu8EBYPbPyF0lDusEPtDswjPwbw?e=nI78Bn" target="_blank"><span class="label">Klantkansen + todo</span></a>
     </div>
 
     <div class="search-row">
@@ -139,7 +128,6 @@
           <button type="submit">Zoeken</button>
         </form>
       </div>
-
       <div class="search-card">
         <h2>Van Dale</h2>
         <form onsubmit="searchVD(event)">
@@ -149,7 +137,7 @@
       </div>
     </div>
 
-    <div class="footer">©2025 All rights reserved, but not allemaal. Made with ❤️ in Zevenaar by Henoch en Chattie. (BFFs 4evah)</div>
+    <div class="footer">Kopieer dit bestand als <code>index.html</code> en open het lokaal, het zou er nu gestyled uit moeten zien.</div>
   </div>
 
   <script>
