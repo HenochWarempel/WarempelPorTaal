@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Warempel-PorTaal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Graphik','Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+      background:#EFEFEF;
+      color:#122024;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    /* Header */
+    .header{
+      width:100%;
+      background:#fff;
+      padding:18px 0;
+      box-shadow:0 1px 3px rgba(0,0,0,.08);
+      position:sticky;
+      top:0;
+      z-index:10;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .header img{height:44px}
+
+    /* Container */
+    .container{width:100%;max-width:920px;padding:28px 20px}
+
+    /* Title */
+    h1{
+      font-family:'Fredoka',sans-serif;
+      color:#FF006C;
+      margin:0 0 20px;
+      font-size:28px;
+    }
+
+    /* Buttons grid */
+    .buttons-row{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+      margin-bottom:18px;
+    }
+    @media(min-width:640px){ .buttons-row{ grid-template-columns:repeat(3,1fr) } }
+
+    .button{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:#fff;
+      color:#122024;
+      text-decoration:none;
+      border-radius:10px;
+      border:1px solid rgba(18,32,36,.06);
+      font-weight:600;
+      box-shadow:0 6px 18px rgba(18,32,36,.03);
+      transition:transform .06s ease,box-shadow .12s;
+    }
+    .button .label{ font-family:'Fredoka',sans-serif; color:#FF006C }
+    .button:hover{ transform:translateY(-4px); box-shadow:0 10px 30px rgba(18,32,36,.08) }
+
+    .button.primary{ background:#FF006C; color:#fff; border-color:transparent }
+    .button.primary .label{ color:inherit }
+    .button.primary:hover{ background:#e00060 }
+
+    /* Search area */
+    .search-row{ display:grid; gap:12px; margin-top:6px }
+    @media(min-width:640px){ .search-row{ grid-template-columns:repeat(2,1fr) } }
+
+    .search-card{
+      background:#fff;
+      padding:14px;
+      border-radius:8px;
+      border:1px solid rgba(18,32,36,.06);
+    }
+    .search-card h2{
+      font-family:'Fredoka',sans-serif;
+      color:#FF006C;
+      margin:0 0 8px;
+      font-size:16px;
+    }
+    .search-card form{ display:flex; gap:8px }
+    .search-card input{
+      flex:1;
+      padding:10px;
+      border:1px solid #e6e6e6;
+      border-radius:6px;
+      font-size:14px;
+    }
+    .search-card button{
+      padding:10px 14px;
+      border-radius:6px;
+      border:0;
+      background:#FF006C;
+      color:#fff;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .footer{ margin:36px 0 60px; color:#7a7a7a; font-size:13px; text-align:center }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <img src="https://warempel.media/app/themes/sage/dist/images/warempel-pink.svg" alt="Warempel logo">
+  </header>
+
+  <div class="container">
+    <h1>Warempel-PorTaal</h1>
+
+    <div class="buttons-row">
+      <a class="button primary" href="https://wijzijnweb.sharepoint.com/sites/Klanten/Gedeelde%20documenten?viewid=dec2c5bf-272e-4909-927a-af63fc62339a" target="_blank"><span class="label">SharePoint</span></a>
+      <a class="button" href="https://wijzijnweb.gripp.com/" target="_blank"><span class="label">Gripp</span></a>
+      <a class="button" href="https://contentkalender.nl/" target="_blank"><span class="label">Contentkalender</span></a>
+      <a class="button" href="https://www.canva.com/projects" target="_blank"><span class="label">Canva</span></a>
+      <a class="button" href="https://chat.openai.com/" target="_blank"><span class="label">Chattie</span></a>
+      <a class="button" href="https://henochwarempel.github.io/customGPTs/" target="_blank"><span class="label">CustomGPTs</span></a>
+    </div>
+
+    <div class="search-row">
+      <div class="search-card">
+        <h2>Woordenlijst.org</h2>
+        <form onsubmit="searchWL(event)">
+          <input id="wl" placeholder="Typ hier je zoekwoord..." required>
+          <button type="submit">Zoeken</button>
+        </form>
+      </div>
+
+      <div class="search-card">
+        <h2>Van Dale</h2>
+        <form onsubmit="searchVD(event)">
+          <input id="vd" placeholder="Typ hier je zoekwoord..." required>
+          <button type="submit">Zoeken</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">©2025 All rights reserved, but not allemaal. Made with ❤️ in Zevenaar by Henoch en Chattie. (BFFs 4evah)</div>
+  </div>
+
+  <script>
+    function searchWL(e){
+      e.preventDefault();
+      const q = document.getElementById('wl').value.trim();
+      if(q) window.open('https://woordenlijst.org/zoeken/?q=' + encodeURIComponent(q), '_blank');
+    }
+    function searchVD(e){
+      e.preventDefault();
+      const q = document.getElementById('vd').value.trim();
+      if(q) window.open('https://www.vandale.nl/pages/gratis-woordenboek/' + encodeURIComponent(q), '_blank');
+    }
+  </script>
+</body>
+</html>
