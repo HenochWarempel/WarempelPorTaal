@@ -121,6 +121,7 @@
       <a class="button" href="https://wijzijnweb.sharepoint.com/:x:/s/Klanten/EdYSMb57FyZGpWwgTX0Bu8EBYPbPyF0lDusEPtDswjPwbw?e=nI78Bn" target="_blank"><span class="label">Klantkansen + todo</span></a>
       <a class="button" href="https://wijzijnweb.sharepoint.com/:x:/s/Klanten/EY8YCuNsH_9Km--92ZOouKoBlN8UPVtmOiC8TqnoEY6OCg?e=NwHr8h" target="_blank"><span class="label">Onderwerpenlijst (leeg sjabloon)</span></a>
       <a class="button" href="https://wijzijnweb.sharepoint.com/:w:/s/Klanten/Eb1coox63vFCnf7_CdmFkUQBv_OZgjsISxthJoeJ8wmYmw?e=F4HOsH" target="_blank"><span class="label">Briefingsdocument (leeg sjabloon)</span></a>
+      <a class="button" href="https://docs.google.com/spreadsheets/d/1YNtZFyT4cIQFK23YkYj3bBVQlGC6K3nqS4xZIRQ03cY/edit?gid=571457186#gid=571457186" target="_blank"><span class="label">Contentplanning labels</span></a>
     </div>
 
     <div class="search-row">
@@ -132,9 +133,9 @@
         </form>
       </div>
       <div class="search-card">
-        <h2>Van Dale</h2>
-        <form onsubmit="searchVD(event)">
-          <input id="vd" placeholder="Typ hier je zoekwoord..." required>
+        <h2>Check reistijd</h2>
+        <form onsubmit="searchMaps(event)">
+          <input id="maps" placeholder="Waar wil je naartoe" required>
           <button type="submit">Zoeken</button>
         </form>
       </div>
@@ -149,10 +150,10 @@
       const q = document.getElementById('wl').value.trim();
       if(q) window.open('https://woordenlijst.org/zoeken/?q=' + encodeURIComponent(q), '_blank');
     }
-    function searchVD(e){
+    function searchMaps(e){
       e.preventDefault();
-      const q = document.getElementById('vd').value.trim();
-      if(q) window.open('https://www.vandale.nl/pages/gratis-woordenboek/' + encodeURIComponent(q), '_blank');
+      const q = document.getElementById('maps').value.trim();
+      if(q) window.open('https://www.google.com/maps/place/Stolwijk+Kelderman+Zevenaar/@51.9428781,6.0787192,582m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47c79f45e9286a2f:0x87678e106fb6ca5c!8m2!3d51.9428781!4d6.0787192!16s%2Fg%2F1tcyk8cv?hl=nl&entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D' + encodeURIComponent(q), '_blank');
     }
   </script>
 </body>
