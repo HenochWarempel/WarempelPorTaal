@@ -153,9 +153,15 @@
       if(q) window.open('https://woordenlijst.org/zoeken/?q=' + encodeURIComponent(q), '_blank');
     }
     function searchMaps(e){
-      e.preventDefault();
-      const q = document.getElementById('maps').value.trim();
-      if(q) window.open('https://www.google.com/maps/place/Stolwijk+Kelderman+Zevenaar/@51.9428781,6.0787192,582m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47c79f45e9286a2f:0x87678e106fb6ca5c!8m2!3d51.9428781!4d6.0787192!16s%2Fg%2F1tcyk8cv?hl=nl&entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D' + encodeURIComponent(q), '_blank');
+  e.preventDefault();
+  const q = document.getElementById('maps').value.trim();
+  if(q){
+    window.open(
+      'https://www.google.com/maps/dir//' + encodeURIComponent(q),
+      '_blank'
+    );
+  }
+}
     }
   </script>
 </body>
