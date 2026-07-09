@@ -146,13 +146,19 @@
     <div class="footer">©2025 All rights reserved, but not allemaal. Made with ❤️ in Zevenaar by Henoch en Chattie. (BFFs 4evah)</div>
   </div>
 
-  <script>
-    function searchWL(e){
-      e.preventDefault();
-      const q = document.getElementById('wl').value.trim();
-      if(q) window.open('https://woordenlijst.org/zoeken/?q=' + encodeURIComponent(q), '_blank');
-    }
-    function searchMaps(e){
+<script>
+function searchWL(e){
+  e.preventDefault();
+  const q = document.getElementById('wl').value.trim();
+  if(q){
+    window.open(
+      'https://woordenlijst.org/zoeken/?q=' + encodeURIComponent(q),
+      '_blank'
+    );
+  }
+}
+
+function searchMaps(e){
   e.preventDefault();
   const q = document.getElementById('maps').value.trim();
   if(q){
@@ -162,8 +168,7 @@
     );
   }
 }
-    }
-  </script>
+</script>
 </body>
 </html>
 
